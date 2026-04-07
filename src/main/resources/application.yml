@@ -1,10 +1,23 @@
 spring:
   application:
     name: temple-api
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
   jackson:
     serialization:
       write-dates-as-timestamps: false
     default-property-inclusion: non_null
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      id-type: auto
+  type-aliases-package: com.temple.api.temple
 
 server:
   servlet:

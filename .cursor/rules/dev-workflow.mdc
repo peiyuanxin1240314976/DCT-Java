@@ -1,0 +1,11 @@
+---
+description: Follow docs/DESIGN_PROCESS.md before adding features or DB changes
+globs: "**/*"
+alwaysApply: false
+---
+
+# 设计与开发顺序
+
+- 新功能先对照仓库根目录 `docs/DESIGN_PROCESS.md` 与当前阶段 `docs/P0_PLAN.md`。
+- 表结构变更**仅允许**通过 `src/main/resources/db/migration` 下 Flyway 脚本；禁止手写 SQL 改生产库不回灌。
+- 对外 JSON 字段保持 **camelCase**，并与 `docs/API_P0.md` 及前端 `src/api/types.ts` 同步。

@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:mysql://${TEMPLE_DB_HOST:127.0.0.1}:${TEMPLE_DB_PORT:3306}/${TEMPLE_DB_NAME:temple}?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: ${TEMPLE_DB_USER:temple}
+    password: ${TEMPLE_DB_PASSWORD:temple}
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
