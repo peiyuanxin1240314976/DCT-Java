@@ -1,0 +1,12 @@
+---
+description: JSON/API field naming aligned with mobile clients (camelCase, stable envelopes)
+globs: "**/*.java"
+alwaysApply: false
+---
+
+# API 与 JSON 字段
+
+- 对外 HTTP JSON **一律 camelCase**，与小程序 / App 的 TypeScript 字段一致；不要在响应里混用 snake_case。
+- 统一成功体使用 `com.temple.api.common.api.ApiResponse`：`success`、`code`、`message`、`data` 含义固定，新增字段先改后端 record 再同步前端 `src/api/types.ts`。
+- 时间字段：优先 **ISO-8601 字符串**（`OffsetDateTime` / `Instant`），或统一毫秒时间戳；全项目只能选一种并在规则里写死。
+- 错误码 `code` 使用稳定枚举或常量（如 `VALIDATION_ERROR`），避免魔法字符串散落。

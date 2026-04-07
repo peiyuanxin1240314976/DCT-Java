@@ -1,0 +1,12 @@
+---
+description: Spring Boot package layout and web layer conventions
+globs: "**/*.java"
+alwaysApply: false
+---
+
+# Spring 分层与可维护性
+
+- `web`：仅 `Controller`，入参校验（`jakarta.validation`），组装 DTO；不写业务规则。
+- `service`（后续）：用例与事务边界；`domain` 放实体与领域规则；`repository` / `infra` 放持久化。
+- Controller 路径以 `/api/v1` 为前缀，资源名用名词复数或清晰单数，避免动词堆砌在同一深度。
+- 复用：公共响应、分页、错误码集中在 `common.api` / `common.error`（后续新增时保持同一包名风格）。
